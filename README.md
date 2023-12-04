@@ -165,3 +165,26 @@ Tệp cấu hình Zabbix Agent
 ```
 sudo nano /etc/zabbix/zabbix_agentd.conf
 ```
+
+## Cài đặt Zabbix Agent trên Ubuntu trên cùng mạng với máy chủ Zabbix
+Các đại lý đang sử dụng cùng phiên bản với máy chủ Zabbix:
+```
+sudo wget https://repo.zabbix.com/zabbix/6.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_6.0-1+ubuntu20.04_all.deb
+sudo dpkg -i zabbix-release_6.0-1+ubuntu20.04_all.deb
+sudo apt update
+```
+![image](https://github.com/tungbui2402/zabbix2/assets/129025623/0bf862b9-e5f1-40ad-b489-adcb162d80bd)
+
+Sau đó, chạy
+```
+sudo apt install zabbix-agent
+```
+Bây giờ để cấu hình agent,
+```
+sudo nano /etc/zabbix/zabbix_agentd.conf
+```
+Chỉnh sửa các tham số cho Server, ServerActive và Hostname rồi lưu.
+Sau bất kỳ thay đổi nào về cấu hình, khởi động lại agent:
+```
+sudo service zabbix-agent restart
+```
